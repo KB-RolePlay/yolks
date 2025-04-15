@@ -29,7 +29,27 @@ LABEL       org.opencontainers.image.licenses=MIT
 
 ENV         DEBIAN_FRONTEND=noninteractive
 
-RUN         dpkg --add-architecture i386 \
-				&& apt update \
-				&& apt upgrade -y \
-				&& apt -y --no-install-recommends install ca-certificates curl lib32gcc-s1 libsdl2-2.0-0:i386 git wget build-essential cmake
+RUN 		dpkg --add-architecture i386 \
+ && apt-get update \
+ && apt-get upgrade -y \
+ && apt-get install -y --no-install-recommends \
+    ca-certificates \
+    curl \
+    wget \
+    git \
+    unzip \
+    jq \
+    file \
+    lib32gcc-s1 \
+    libsdl2-2.0-0:i386 \
+    build-essential \
+    cmake \
+    make \
+    gcc \
+    g++ \
+    libtool \
+    libssl-dev \
+    libprotobuf-dev \
+    protobuf-compiler \
+ && apt-get clean \
+ && rm -rf /var/lib/apt/lists/*
