@@ -20,7 +20,7 @@
 # SOFTWARE.
 #
 
-FROM        --platform=$TARGETOS/$TARGETARCH node:19-alpine
+FROM        --platform=$TARGETOS/$TARGETARCH node:19-bullseye
 
 LABEL       author="Kobralost RolePlay"
 
