@@ -29,7 +29,7 @@ LABEL       org.opencontainers.image.licenses=MIT
 
 RUN         apt update && apt install -y ca-certificates curl ffmpeg git openssl tar tzdata build-essential cmake \
 	&& adduser -D -h /home/container container \
-	&& rm /var/lib/apt/lists/*
+	&& rm -r /var/lib/apt/lists/*
 
 USER        container
 ENV         USER=container HOME=/home/container
