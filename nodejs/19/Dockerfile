@@ -27,8 +27,9 @@ LABEL       author="Kobralost RolePlay"
 LABEL       org.opencontainers.image.source="https://github.com/KB-RolePlay/yolks"
 LABEL       org.opencontainers.image.licenses=MIT
 
-RUN         apk add --update --no-cache ca-certificates curl ffmpeg git openssl sqlite tar tzdata build-essential cmake \
-	&& adduser -D -h /home/container container
+RUN         apt update && apt install -y ca-certificates curl ffmpeg git openssl sqlite tar tzdata build-essential cmake \
+	&& adduser -D -h /home/container container \
+	&& rm /var/lib/apt/lists/* \
 
 USER        container
 ENV         USER=container HOME=/home/container
