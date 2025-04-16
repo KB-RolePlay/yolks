@@ -28,7 +28,7 @@ LABEL       org.opencontainers.image.source="https://github.com/KB-RolePlay/yolk
 LABEL       org.opencontainers.image.licenses=MIT
 
 RUN         apt update && apt install -y ca-certificates curl ffmpeg git openssl tar tzdata build-essential cmake \
-	&& adduser -D -h /home/container container \
+	&& useradd -m -d /home/container container	\
 	&& rm -r /var/lib/apt/lists/*
 
 USER        container
